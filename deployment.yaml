@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hellovue-deployment
+  labels:
+    role: hello-vue
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      role: hello-vue
+  template: 
+    metadata:
+        labels:
+            role: hello-vue
+    spec:
+        containers:
+        - name: frontend
+          image: mprambadi/hello-vue
+          ports:
+            - containerPort: 80
